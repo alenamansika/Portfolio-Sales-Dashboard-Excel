@@ -52,7 +52,7 @@ Analisis ini melacak tren musiman bulanan (*Seasonality Pattern*), tingkat erosi
 * **Restrukturisasi Kategori Tables:** Lakukan peninjauan ulang terhadap struktur biaya (*cost structure*) produk *Tables*, negosiasi ulang harga beli dari vendor, atau pangkas SKU yang tidak efisien dari katalog.
 * **Optimalisasi Inventaris Q4:** Skalakan alokasi pasokan inventaris produk *Copiers* dan *Phones* sejak bulan **Agustus** untuk memaksimalkan lonjakan permintaan akhir tahun.
 
-![Global Superstore Sales Dashboard Preview](Sales%20Dashboard%20Image.png)
+![Global Superstore Sales Dashboard Preview](Sales%20Dashboard%20Image.jpeg)
 
 📄 **[Download / Lihat Dashboard versi PDF Beresolusi Tinggi](./Sales%20Dashboard%20PDF.pdf)**
 
