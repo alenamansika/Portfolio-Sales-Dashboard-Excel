@@ -1,71 +1,178 @@
-# 📊 Global Superstore Sales & Profitability Analysis (Advanced Excel Dashboard)
+# 📊 Global Superstore Sales & Profitability Analysis Dashboard
 
 ## 📌 Project Overview
-Proyek ini menganalisis data historis transaksi e-commerce global (**51,284 order**) periode **2011–2014** serta membangun *Executive Interactive Dashboard* di Microsoft Excel untuk membedah tingkat profitabilitas perusahaan. 
 
-Analisis ini melacak tren musiman bulanan (*Seasonality Pattern*), tingkat erosi margin akibat kebijakan diskon (*Discount Erosion*), kontribusi per kategori produk, serta mengidentifikasi sub-kategori pencetak profit utama (*Star Products*) maupun produk yang menggerus margin (*Bleeding Products*).
+Proyek ini merupakan latihan analisis data penjualan dan profitabilitas menggunakan **Microsoft Excel**. Saya menganalisis data transaksi Global Superstore selama periode **2011–2014**, dengan total **51,284 records** setelah proses data cleaning.
 
----
+Dalam proyek ini, saya membuat dashboard interaktif untuk melihat hubungan antara **Sales, Profit, Discount, Category, dan Sub-Category**.
 
-## 🗂️ Data Source & Attribution
-* **Dataset:** Global Superstore Sales Dataset (2011–2014)
-* **Publisher:** Kaggle (Fatih İlhan)
-* **Link Source:** [Kaggle - Global Superstore Dataset](https://www.kaggle.com/datasets/fatihilhan/global-superstore-dataset)
+Analisis digunakan untuk melihat pola penjualan dan profit dari waktu ke waktu, membandingkan profitabilitas antar-sub-kategori produk, serta mengeksplorasi hubungan antara tingkat diskon dan profit berdasarkan data yang tersedia.
 
 ---
 
-## 🛠️ Excel Features & Techniques Used
+## 🗂️ Dataset
 
-* **Data Cleaning & Standardisation:**
-  * **Missing Value Handling:** Menghapus 6 baris data kosong (*blank rows*) pada variabel finansial utama untuk menjaga integritas data (*data integrity*), menyesuaikan total data transaksi bersih dari 51,290 menjadi **51,284 baris**.
-  * **Custom Number Formatting:** Menerapkan pemformatan kustom (`$#,##0,"K"`) dan membagi nilai keuangan menjadi unit desimal **Thousand Dollars ($K)** dan **Million Dollars ($M)** agar tampilan *scorecard* profesional dan mudah dibaca.
-* **Feature Engineering:**
-  * **Price Binning (`Group Sales`):** Mengelompokkan nilai transaksi ke dalam 6 rentang harga belanja (`$0-$99`, `$100-$299`, dst.) menggunakan rumus `Nested IF`.
-  * **Discount Rate Binning (`Group discount`):** Mentransformasi nilai desimal diskon dari kolom `Discount` menjadi interval persentase diskon (`0-10%`, `11-20%`, ..., `81%+`) untuk analisis sensitivitas promosi.
-  * **Date Extraction (`Month`):** Mengekstrak nama bulan singkat dari kolom `Order Date` untuk mendukung analisis pola musiman bulanan.
-* **Data Staging Architecture & Dynamic Slicers:**
-  * **Dedicated Staging Sheet (`Staging KPI`):** Memisahkan area *backend logic* dan *Pivot Tables* dari lembar kerja tampilan utama untuk menjaga kestabilan *file*.
-  * **Strategic Slicer Interactivity (`Report Connections`):** Menghubungkan **Slicer Year**, **Month**, **Segment**, dan **Market** secara eksplisit ke seluruh Pivot Table untuk memungkinkan pemfilteran data secara *real-time* tanpa merusak tata letak *grid*.
-* **Advanced Charting Mechanics & UI/UX Design:**
-  * **Dual-Axis Combo Seasonality Chart:** Menggabungkan batang penjualan bulanan (*Sales*) pada sumbu primer dengan garis keuntungan bersih (*Profit*) pada sumbu sekunder.
-  * **Horizontal Bar Chart Sorting:** Memetakan 17 sub-kategori produk secara hierarkis dari pencetak laba tertinggi hingga terendah dengan label nilai yang disesuaikan.
-  * **Clean Navy Blue Dashboard Layout:** Menyusun tata letak *Clean Single-Canvas Dashboard* bernuansa *Navy Blue* & *Sage Green* yang pas dalam 1 layar *view* dilengkapi *direct data labels* untuk kemudahan pembacaan eksekutif.
+- **Dataset:** Global Superstore Dataset
+- **Source:** Kaggle
+- **Publisher:** Fatih İlhan
+- **Period:** 2011–2014
+- **Records:** 51,284
+
+📎 **Dataset Source:**  
+[Global Superstore Dataset – Kaggle](https://www.kaggle.com/datasets/fatihilhan/global-superstore-dataset)
 
 ---
 
-## 📈 Interactive Dashboard Showcase
+## 🛠️ Data Preparation & Analysis
 
-### 1. Pola Musiman Penjualan & Keuntungan Bulanan (Seasonality Analysis)
-*Combo Line & Column Chart* deret waktu yang memadukan data volume penjualan bulanan dengan tren laba bersih sepanjang periode 2011–2014.
-* **Key Insight:** Penjualan bulanan menunjukkan tren kenaikan yang sangat tajam pada kuartal keempat (Q4). Bulan **November ($1.55M Sales / $175.4K Profit)** dan **Desember ($1.58M Sales / $170.6K Profit)** secara konsisten menjadi puncak tertinggi (*Peak Season*) transaksi tahunan. Terdapat pula penurunan (*dip*) pada bulan **Juli ($749K Sales)** sebelum kembali melonjak di bulan Agustus ($1.29M Sales).
+Beberapa proses yang saya lakukan dalam proyek ini meliputi:
+
+### Data Preparation
+
+- Memeriksa data kosong pada variabel yang digunakan dalam analisis
+- Menghapus 6 baris data kosong sehingga jumlah data yang digunakan menjadi **51,284 records**
+- Memeriksa dan menyesuaikan format data
+- Menerapkan custom number formatting untuk meningkatkan keterbacaan nilai Sales dan Profit
+
+### Data Transformation
+
+- Membuat **Group Sales** untuk mengelompokkan nilai transaksi ke dalam beberapa rentang
+- Membuat **Group Discount** untuk mengelompokkan tingkat diskon ke dalam beberapa interval persentase
+- Mengekstrak informasi **Month** dari kolom Order Date untuk mendukung analisis bulanan
+
+### Analysis & Excel Features
+
+- Menggunakan **PivotTables** untuk membantu proses analisis
+- Membuat **Slicers** untuk memfilter data berdasarkan Year, Month, Segment, dan Market
+- Membuat KPI Summary
+- Membandingkan Sales dan Profit berdasarkan bulan
+- Menganalisis hubungan antara tingkat Discount dan Profit
+- Membandingkan profitabilitas antar-sub-category produk
+- Membuat dashboard interaktif menggunakan Microsoft Excel
 
 ---
 
-### 2. Bahaya Diskon Tersembunyi (Profit Erosion) & Kinerja Sub-Kategori
-*Combo Bar-Line Chart* dan *Horizontal Bar Chart* yang memetakan sensitivitas diskon terhadap kerugian margin serta profitabilitas 17 sub-kategori produk.
-* **Key Insight:** Transaksi dengan diskon $\le$ 20% menjadi penopang utama profitabilitas bisnis (diskon `0-10%` menyumbang laba terbesar **>$2.11M**). Sebaliknya, diskon di atas 20% secara konsisten menghasilkan **laba bersih negatif (rugi)**, terutama pada kelompok `51-60%` (**-$214.8K**) dan `71-80%` (**-$197.5K**). Di sisi produk, **Copiers ($258.6K)** dan **Phones ($216.7K)** memimpin sebagai pencetak laba terbanyak, sementara sub-kategori **Tables** mencatatkan kerugian paling parah sebesar **-$64.1K**.
+# 📈 Dashboard Highlights & Key Insights
+
+## 1️⃣ Monthly Sales & Profit Trend
+
+Combo Chart digunakan untuk membandingkan perubahan **Sales dan Profit** berdasarkan bulan.
+
+### 🔍 Key Insight
+
+Berdasarkan hasil analisis, Sales dan Profit menunjukkan peningkatan pada beberapa bulan menjelang akhir tahun.
+
+- **November** mencatat Sales sebesar **$1.55M** dengan Profit sebesar **$175.4K**
+- **Desember** mencatat Sales sebesar **$1.58M** dengan Profit sebesar **$170.6K**
+- **Juli** mencatat Sales sebesar **$749K**
+- Sales kembali meningkat pada **Agustus** menjadi **$1.29M**
+
+Berdasarkan data yang tersedia, November dan Desember memiliki nilai Sales tertinggi dibandingkan bulan lainnya.
 
 ---
 
-### 💡 Strategic & Risk Management Recommendation
-* **Discount Capping (Prioritas Utama):** Berlakukan batas diskon (*discount cap*) maksimal **20%** untuk transaksi umum guna menghentikan kebocoran profit ratusan ribu dolar secara langsung.
-* **Restrukturisasi Kategori Tables:** Lakukan peninjauan ulang terhadap struktur biaya (*cost structure*) produk *Tables*, negosiasi ulang harga beli dari vendor, atau pangkas SKU yang tidak efisien dari katalog.
-* **Optimalisasi Inventaris Q4:** Skalakan alokasi pasokan inventaris produk *Copiers* dan *Phones* sejak bulan **Agustus** untuk memaksimalkan lonjakan permintaan akhir tahun.
+## 2️⃣ Discount & Profit Analysis
+
+Analisis ini membandingkan tingkat Discount dengan Profit yang dihasilkan berdasarkan kelompok diskon.
+
+### 🔍 Key Insight
+
+Berdasarkan hasil analisis:
+
+- Kelompok diskon **0–10%** menghasilkan Profit terbesar, yaitu lebih dari **$2.11M**
+- Kelompok transaksi dengan Discount di atas **20%** menunjukkan Profit negatif dalam data yang dianalisis
+- Kerugian terbesar tercatat pada kelompok Discount **51–60%**, yaitu sekitar **-$214.8K**
+- Kelompok Discount **71–80%** juga mencatat Profit negatif sebesar sekitar **-$197.5K**
+
+Hasil ini menunjukkan bahwa pada dataset yang dianalisis, tingkat diskon yang lebih tinggi tidak selalu menghasilkan profit yang lebih tinggi.
+
+---
+
+## 3️⃣ Sub-Category Profitability
+
+Bar Chart digunakan untuk membandingkan Profit antar-sub-category produk.
+
+### 🔍 Key Insight
+
+Berdasarkan data yang tersedia:
+
+- **Copiers** memiliki Profit tertinggi sebesar **$258.6K**
+- **Phones** memiliki Profit sebesar **$216.7K**
+- **Tables** mencatat Profit negatif terbesar sebesar **-$64.1K**
+
+Perbandingan ini membantu mengidentifikasi sub-category dengan kontribusi Profit positif dan sub-category yang menghasilkan Profit negatif selama periode analisis.
+
+---
+
+## 💡 Analytical Considerations
+
+Berdasarkan hasil analisis, terdapat beberapa hal yang dapat menjadi pertimbangan untuk analisis lebih lanjut:
+
+- Hubungan antara Discount dan Profit dapat dianalisis lebih lanjut sebelum menentukan kebijakan diskon.
+- Sub-category dengan Profit negatif, seperti **Tables**, dapat dievaluasi lebih lanjut untuk memahami faktor yang memengaruhi profitabilitasnya.
+- Pola peningkatan Sales pada beberapa bulan menjelang akhir tahun dapat digunakan sebagai dasar untuk mengeksplorasi pola musiman dalam data.
+
+> **Note:** Temuan dalam proyek ini didasarkan pada data dan variabel yang tersedia dalam dataset. Hasil analisis tidak digunakan sebagai dasar untuk menentukan keputusan bisnis secara langsung.
+
+---
+
+# 🖼️ Dashboard Preview
 
 ![Global Superstore Sales Dashboard Preview](Sales%20Dashboard%20Image.jpeg)
 
-📄 **[Download / Lihat Dashboard versi PDF Beresolusi Tinggi](./Sales%20Dashboard%20PDF.pdf)**
+📄 **[View Full Dashboard in High-Resolution PDF](./Sales%20Dashboard%20PDF.pdf)**
 
 ---
 
-## 📁 Repository Structure
+# 📁 Workbook Structure
 
-* `Sales_Performance_Analysis_Dashboard.xlsx` : File kerja utama Excel (mentah, staging KPI, dan dashboard).
-* `Sales Dashboard Image.png` : Gambar tangkapan layar visualisasi dashboard beresolusi tinggi.
-* `Sales Dashboard PDF.pdf` : Laporan dashboard versi PDF *Executive View*.
+**Sales Data:** Berisi data transaksi yang digunakan dalam proses analisis.
+
+**Data Cleaning:** Digunakan untuk proses pemeriksaan dan pengolahan data sebelum analisis.
+
+**Staging KPI:** Berisi PivotTables dan perhitungan pendukung yang digunakan dalam dashboard.
+
+**Dashboard:** Berisi hasil akhir dashboard, termasuk KPI, charts, dan interactive slicers.
+
+📄 **Main File:**  
+`Sales_Performance_Analysis_Dashboard.xlsx`
 
 ---
 
-## 👤 Author
-- **GitHub:** [@alenamansika](https://github.com/alenamansika)
-- **LinkedIn:** [Alena Mansika](https://www.linkedin.com/in/alenamansika)
+# 🧰 Tools & Skills Demonstrated
+
+**Tool Used:** Microsoft Excel
+
+**Skills & Techniques:**
+
+- Data Cleaning
+- Data Preparation
+- Data Transformation
+- Date Manipulation
+- Nested IF
+- PivotTables
+- PivotCharts
+- Interactive Slicers
+- Data Visualization
+- Sales Analysis
+- Profitability Analysis
+- Trend Analysis
+- Dashboard Development
+
+---
+
+# 🎯 Project Takeaways
+
+Melalui proyek ini, saya berlatih menganalisis data penjualan dan profitabilitas serta mengubah hasil analisis menjadi dashboard menggunakan Microsoft Excel. 
+Proyek ini juga membantu saya memahami proses analisis data secara lebih praktis, mulai dari:
+
+**Raw Data → Data Preparation → Analysis → Visualization → Dashboard Development**
+
+---
+
+# 👤 Author
+
+**Alena Mansika**
+
+- 💻 **GitHub:** [@alenamansika](https://github.com/alenamansika)
+- 💼 **LinkedIn:** [Alena Mansika](https://www.linkedin.com/in/alenamansika)
