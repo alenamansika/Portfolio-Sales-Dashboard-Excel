@@ -63,7 +63,6 @@ Analisis ini melacak tren musiman bulanan (*Seasonality Pattern*), tingkat erosi
 * `Sales_Performance_Analysis_Dashboard.xlsx` : File kerja utama Excel (mentah, staging KPI, dan dashboard).
 * `Sales Dashboard Image.png` : Gambar tangkapan layar visualisasi dashboard beresolusi tinggi.
 * `Sales Dashboard PDF.pdf` : Laporan dashboard versi PDF *Executive View*.
-* 📝 **Medium Article:** [Building an Executive Sales & Profitability Dashboard: Uncovering Margin Leakage in Excel](https://medium.com/@alenamansika723/building-an-executive-sales-profitability-dashboard-uncovering-margin-leakage-in-excel-f3b0999701ad?postPublishedType=initial)
 
 ---
 
